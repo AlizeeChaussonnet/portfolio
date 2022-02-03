@@ -1,0 +1,45 @@
+GET http://localhost:8000/api/projets
+Content-Type: application/json
+
+###
+POST http://localhost:8000/api/projets
+Content-Type: application/json
+
+  {
+    "name": "La casa de pizza",
+    "picture": "https://i.ibb.co/L6BSMrW/Capture-d-e-cran-2022-02-02-a-20-54-26.png",
+    "link": "https://alizeechaussonnet.github.io/La-casa-de-pizza/",
+    "github": "https://github.com/AlizeeChaussonnet/La-casa-de-pizza",
+    "description": "1er projet réalisé en équipe",
+    "explanation": "Utilisation HTML/CSS. Inclure un effet wahoou en Javascript",
+    "technos": [
+      {
+        "techno_name": "JavaScript"
+      },  {
+        "techno_name": "HTML"
+      }
+    ]
+  }
+
+###
+PUT http://localhost:8000/api/albums/1
+Content-Type: application/json
+
+ {
+     "title": "N'attendons pas - Nouvelle édition",
+     "genre": "variété française",
+     "picture": "picture en attente",
+     "artist": "Vianney"
+}
+
+###
+GET http://localhost:8000/api/albums/1
+Content-Type: application/json
+
+###
+GET http://localhost:8000/api/albums/1/tracks
+Content-Type: application/json
+
+###
+DELETE http://localhost:8000/api/albums/3
+Content-Type: application/json

@@ -1,0 +1,53 @@
+CREATE DATABASE portfolio;
+
+USE portfolio;
+
+CREATE TABLE `projet` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `picture` VARCHAR(255) NOT NULL,
+  `link` VARCHAR(255) NOT NULL,
+  `description` VARCHAR(255) NOT NULL,
+  `explanation` VARCHAR(500) NOT NULL,
+  `technos` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+
+CREATE TABLE `techno` (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+`name` VARCHAR(50) NOT NULL,
+  `id_techno` INT NOT NULL,
+    CONSTRAINT fk_projet_techno 
+        FOREIGN KEY (id_techno)             
+        REFERENCES techno(id)    
+);
+
+
+
+
+SELECT  *
+FROM projet
+INNER JOIN techno ON projet.id = techno.id_techno;
+
+WHERE album.id=1;
+
+
+model projet {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(255)
+  picture     String   @db.VarChar(500)
+  link        String   @db.VarChar(500)
+  description String   @db.VarChar(255)
+  explanation String   @db.VarChar(500)
+  techno      techno[]
+}
+
+model techno {
+  id         Int    @id @default(autoincrement())
+  name       String @db.VarChar(50)
+  id_technos Int
+  projet     projet @relation(fields: [id_technos], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_projet_techno")
+
+  @@index([id_technos], map: "fk_projet_techno")
+}
