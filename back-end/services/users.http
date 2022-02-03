@@ -1,0 +1,30 @@
+GET http://localhost:8000/api/users
+Content-Type: application/json
+
+###
+POST http://localhost:8000/api/users
+Content-Type: application/json
+
+ {
+     "email": "alizee@email.fr",
+     "password": "motdepasse",
+     "role": 0
+}
+
+###
+PUT http://localhost:8000/api/users/2
+Content-Type: application/json
+
+ {
+     "email": "toto@email.fr",
+     "password": "motdepasse",
+     "role": 0
+}
+
+###
+GET http://localhost:8000/api/users/1
+Content-Type: application/json
+
+###
+DELETE http://localhost:8000/api/users/4
+Content-Type: application/json

@@ -22,7 +22,7 @@ Content-Type: application/json
   }
 
 ###
-PUT http://localhost:8000/api/albums/1
+PUT http://localhost:8000/api/projets/1
 Content-Type: application/json
 
  {
@@ -33,13 +33,5 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8000/api/albums/1
-Content-Type: application/json
-
-###
-GET http://localhost:8000/api/albums/1/tracks
-Content-Type: application/json
-
-###
-DELETE http://localhost:8000/api/albums/3
+DELETE http://localhost:8000/api/projets/3
 Content-Type: application/json

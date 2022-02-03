@@ -41,37 +41,96 @@ app.post("/api/projets", async (req, res) => {
       },
     })
   );
-
   res.status(201).send("created");
 });
 
-// Mettre à jour un titre
+/////////////    USERS     ///////////////////
 
-app.put("/api/tracks/:id", async (req, res) => {
-  const { title, youtube_url, id_album } = req.body;
-  await db.$queryRaw`UPDATE track SET title = ${title}, youtube_url = ${youtube_url} , id_album = ${id_album} WHERE id = ${req.params.id}`;
-  res.status(204).send("no content");
+// Voir tous les users
+
+app.get("/api/users", async (req, res) => {
+  try {
+    res.send(await db.user.findMany());
+  } catch (e) {
+    res.status(500).send("Unexpected error");
+  }
 });
 
-// Avoir un titre spécifique
+// Créer un user
 
-app.get("/api/tracks/:id", async (req, res) => {
-  res.send(await db.$queryRaw`SELECT * FROM track WHERE id = ${req.params.id}`);
+app.post("/api/users", async (req, res) => {
+  const { email, password, role } = req.body;
+  try {
+    await db.user.create({
+      data: {
+        email: email,
+        password: password,
+        role: role,
+      },
+    });
+    res.status(201).send("created");
+  } catch (e) {
+    res.status(500).send("Unexpected error");
+  }
 });
 
-// Supprimer un titre spécifique
-app.delete("/api/tracks/:id", async (req, res) => {
-  await db.$queryRaw`DELETE FROM track WHERE id = ${req.params.id}`;
-  res.status(204).send("no content");
+// Modifier un user
+
+app.put("/api/users/:id", async (req, res) => {
+  const id = parseInt(req.params.id);
+  const { email, password, role } = req.body;
+  try {
+    await db.user.update({
+      where: { id: id },
+      data: {
+        email: email,
+        password: password,
+        role: role,
+      },
+    });
+    res.status(200).send("update");
+  } catch (e) {
+    res.status(500).send("Unexpected error");
+  }
 });
 
-////////////////      TECHNO      ////////////////////
+// Supprimer un user
 
-// Voir toutes les technos
-
-app.get("/api/technos", async (req, res) => {
-  res.send(await db.$queryRaw`SELECT * FROM techno`);
+app.delete("/api/users/:id", async (req, res) => {
+  const id = parseInt(req.params.id);
+  try {
+    await db.user.delete({
+      where: {
+        id: id,
+      },
+    });
+    res.status(204).send("no content");
+  } catch (e) {
+    res.status(500).send("Unexpected error");
+  }
 });
+
+// // Mettre à jour un titre
+
+// app.put("/api/tracks/:id", async (req, res) => {
+//   const { title, youtube_url, id_album } = req.body;
+//   await db.$queryRaw`UPDATE track SET title = ${title}, youtube_url = ${youtube_url} , id_album = ${id_album} WHERE id = ${req.params.id}`;
+//   res.status(204).send("no content");
+// });
+
+// // Avoir un titre spécifique
+
+// app.get("/api/tracks/:id", async (req, res) => {
+//   res.send(await db.$queryRaw`SELECT * FROM track WHERE id = ${req.params.id}`);
+// });
+
+// ////////////////      TECHNO      ////////////////////
+
+// // Voir toutes les technos
+
+// app.get("/api/technos", async (req, res) => {
+//   res.send(await db.$queryRaw`SELECT * FROM techno`);
+// });
 
 app.listen(PORT, (err) => {
   // eslint-disable-next-line no-console

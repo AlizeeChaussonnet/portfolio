@@ -19,17 +19,23 @@ model projet {
 
 }
 
-// model projet_techno {
-//   id_techno Int
-//   id_projet Int
-//   projet    projet @relation(fields: [id_projet], references: [id])
-//   techno    techno @relation(fields: [id_techno], references: [id])
-
-//   @@id([id_techno, id_projet])
-// }
-
 model techno {
   id          Int      @id @default(autoincrement())
   techno_name String   @db.VarChar(50)
   projets     projet[]
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  email    String @db.VarChar(100)
+  password String @db.VarChar(255)
+  role     Int
+}
+
+model contact {
+  id        Int    @id @default(autoincrement())
+  firstname String @db.VarChar(100)
+  lastname  String @db.VarChar(100)
+  email     String @db.VarChar(100)
+  message   String @db.VarChar(500)
 }
