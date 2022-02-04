@@ -1,4 +1,7 @@
 require("dotenv").config();
+const bcrypt = require("bcrypt");
+const { schema, clearSchema } = require("./user.schema");
+
 const app = require("./app");
 
 const PORT = process.env.PORT || 8000;
@@ -109,28 +112,6 @@ app.delete("/api/users/:id", async (req, res) => {
     res.status(500).send("Unexpected error");
   }
 });
-
-// // Mettre à jour un titre
-
-// app.put("/api/tracks/:id", async (req, res) => {
-//   const { title, youtube_url, id_album } = req.body;
-//   await db.$queryRaw`UPDATE track SET title = ${title}, youtube_url = ${youtube_url} , id_album = ${id_album} WHERE id = ${req.params.id}`;
-//   res.status(204).send("no content");
-// });
-
-// // Avoir un titre spécifique
-
-// app.get("/api/tracks/:id", async (req, res) => {
-//   res.send(await db.$queryRaw`SELECT * FROM track WHERE id = ${req.params.id}`);
-// });
-
-// ////////////////      TECHNO      ////////////////////
-
-// // Voir toutes les technos
-
-// app.get("/api/technos", async (req, res) => {
-//   res.send(await db.$queryRaw`SELECT * FROM techno`);
-// });
 
 app.listen(PORT, (err) => {
   // eslint-disable-next-line no-console
