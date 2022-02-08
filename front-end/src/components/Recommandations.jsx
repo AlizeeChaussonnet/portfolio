@@ -2,7 +2,7 @@ import BlocRecommandations from "./BlocRecommandations";
 
 export default function Recommandations() {
   return (
-    <div className="" id="container-recommandation">
+    <div className="pt-10" id="container-recommandation">
       <h2 className="titre-section px-24">Recommandations</h2>
       <div className="flex px-24">
         <BlocRecommandations

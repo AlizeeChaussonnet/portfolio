@@ -113,6 +113,32 @@ app.delete("/api/users/:id", async (req, res) => {
   }
 });
 
+/////////////    CONTACT FORM     ///////////////////
+
+// Voir tous les messages
+
+app.get("/api/contact", async (req, res) => {
+  try {
+    res.send(await db.contact.findMany());
+  } catch (e) {
+    res.status(500).send("Unexpected error");
+  }
+});
+
+// Créer un user
+
+app.post("/api/contact", async (req, res) => {
+  const { name, email, message } = req.body;
+  try {
+    await db.contact.create({
+      data: { name, email, message },
+    });
+    res.status(201).send("created");
+  } catch (e) {
+    res.status(500).send("Unexpected error");
+  }
+});
+
 app.listen(PORT, (err) => {
   // eslint-disable-next-line no-console
   if (err) console.error(err);

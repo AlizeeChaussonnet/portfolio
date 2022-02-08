@@ -40,11 +40,6 @@ code {
     @apply bg-cyan-400 text-[#282c34] z-50 p-4 font-medium hover:bg-white;
   }
 
-  input,
-  textarea {
-    @apply rounded-lg p-2 mx-5 bg-zinc-800/20 focus:ring-zinc-800 text-black focus:border-zinc-800;
-  }
-
   label {
     @apply m-8;
   }

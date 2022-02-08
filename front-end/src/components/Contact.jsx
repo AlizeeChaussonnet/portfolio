@@ -1,68 +1,116 @@
-import React from "react";
+import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
-export default function Contact() {
+export default function Contact({ API_URL }) {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    return await axios.post(`${API_URL}/contact`, data).data;
+  };
+  const notify = () => toast("Wow so easy !");
+
   return (
     <div id="container-contact">
       <h2 className="titre-section px-24">Contact</h2>
-      <form
-        className="h-60 flex flex-col w-[86%] m-auto items-end"
-        method="post"
-      >
-        <div className="flex justify-between w-full">
-          <div className="flex flex-col">
-            <div className="flex justify-between">
-              <div>
-                <label htmlFor="lastName">Nom</label>
-                <input
-                  type="text"
-                  placeholder="Nom"
-                  id="lastName"
-                  name="lastName"
-                  value=""
-                />
-              </div>
-              <div>
-                <label htmlFor="firstName">Prénom</label>
-                <input
-                  type="text"
-                  placeholder="Prénom"
-                  id="firstName"
-                  name="firstName"
-                  value=""
-                  className="mr-0"
-                />
-              </div>
-            </div>
-
-            <div className="my-4">
-              <label htmlFor="email">Email</label>
+      <div className="w-full md:w-96 md:max-w-full mx-auto my-6 bg-[#f7f7f7]">
+        <div className="p-6 border border-gray-300 sm:rounded-md">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <label className="block mb-6">
+              <span className="text-gray-700">Nom et Prénom</span>
               <input
-                className="w-full m-0"
-                placeholder="Email"
-                type="email"
-                id="email"
+                type="text"
+                name="name"
+                className="
+            block
+            w-full
+            mt-1
+            border-gray-300
+            rounded-md
+            shadow-sm
+            focus:border-indigo-300
+            focus:ring
+            focus:ring-indigo-200
+            focus:ring-opacity-50
+          "
+                placeholder="Laurence Dupont"
+                {...register("name")}
+              />
+            </label>
+            <label className="block mb-6">
+              <span className="text-gray-700">Email</span>
+              <input
                 name="email"
-                value=""
+                type="email"
+                className="
+            block
+            w-full
+            mt-1
+            border-gray-300
+            rounded-md
+            shadow-sm
+            focus:border-indigo-300
+            focus:ring
+            focus:ring-indigo-200
+            focus:ring-opacity-50
+          "
+                placeholder="laurence.dupont@example.com"
+                required
+                {...register("email")}
+              />
+            </label>
+            <label className="block mb-6">
+              <span className="text-gray-700">Message</span>
+              <textarea
+                name="message"
+                className="
+            block
+            w-full
+            mt-1
+            border-gray-300
+            rounded-md
+            shadow-sm
+            focus:border-indigo-300
+            focus:ring
+            focus:ring-indigo-200
+            focus:ring-opacity-50
+          "
+                rows="3"
+                placeholder="Quel est votre message ?"
+                {...register("message")}
+              ></textarea>
+            </label>
+            <div className="mb-6 flex justify-end">
+              <button
+                type="submit"
+                className="
+         button-general
+          "
+              >
+                Contactez-Moi
+              </button>
+
+              <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
               />
             </div>
-          </div>
-
-          <div className="items-center">
-            <label htmlFor="message">Message :</label>
-            <textarea
-              className="w-full mx-0"
-              id="message"
-              name="message"
-            ></textarea>
-          </div>
+          </form>
         </div>
-        <a
-          href="mailto:alizee.chaussonnet@gmail.com"
-          className="button-general justify-center text-center mt-4 w-24"
-        >
-          Envoyer
-        </a>
-      </form>
+      </div>
     </div>
   );
 }

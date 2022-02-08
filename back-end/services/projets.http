@@ -22,6 +22,62 @@ Content-Type: application/json
   }
 
 ###
+POST http://localhost:8000/api/projets
+Content-Type: application/json
+
+  {
+    "name": "Buzzle",
+    "picture": "https://i.ibb.co/KKKDLS1/Buzzle.png",
+    "link": "https://buzzle.herokuapp.com/",
+    "github": "https://github.com/AlizeeChaussonnet/La-casa-de-pizza",
+    "description": "2ème projet réalisé en équipe",
+    "explanation": "Projet en React et utilisation d'une API + back. Réalisé avec la méthode Agile Scrum.",
+    "technos": [
+      {
+        "techno_name": "JavaScript"
+      },  {
+        "techno_name": "React"
+      },  {
+        "techno_name": "API REST"
+      },  {
+        "techno_name": "ExpressJS"
+      }, {
+        "techno_name": "SCRUM"
+      },  {
+        "techno_name": "Git/GitHub"
+      }
+    ]
+  }
+
+###
+POST http://localhost:8000/api/projets
+Content-Type: application/json
+
+  {
+    "name": "SpotOn",
+    "picture": "https://i.ibb.co/W59kk7m/SpotOn.png",
+    "link": "http://137.74.195.166/",
+    "github": " ",
+    "description": "3ème projet réalisé en équipe avec un porteur de projet",
+    "explanation": "Projet en React et TypeScript. Réalisation du Front-End, Back-end et Back-Office pour les utilisateurs, studios et admins. Réalisé avec la méthode Agile Scrum.",
+    "technos": [
+      {
+        "techno_name": "TypeScript"
+      },  {
+        "techno_name": "React"
+      },  {
+        "techno_name": "API REST"
+      },  {
+        "techno_name": "ExpressJS"
+      }, {
+        "techno_name": "SCRUM"
+      },  {
+        "techno_name": "Git/GitHub"
+      }
+    ]
+  }
+
+###
 PUT http://localhost:8000/api/projets/1
 Content-Type: application/json
 

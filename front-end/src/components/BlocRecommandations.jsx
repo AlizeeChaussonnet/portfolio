@@ -5,7 +5,7 @@ export default function BlocRecommandations({
   descriptionRecommandation,
 }) {
   return (
-    <div className="px-8 py-20">
+    <div className="px-8 py-4">
       <h3 className="text-gray-600 font-light text-2xl pb-6">
         {titreRecommandation}
       </h3>

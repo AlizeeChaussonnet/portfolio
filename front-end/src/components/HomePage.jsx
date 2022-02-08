@@ -9,21 +9,19 @@ import Recommandations from "./Recommandations";
 import Contact from "./Contact";
 import Footer from "./Footer";
 
-export default function HomePage() {
-  const API_URL = "http://localhost:8000/api";
-
-  const [projet, setProjet] = useState([]);
+export default function HomePage({ API_URL }) {
+  const [projets, setProjets] = useState([]);
 
   useEffect(() => {
-    fetchProjet();
+    fetchProjets();
   }, []);
 
-  async function fetchProjet() {
+  async function fetchProjets() {
     try {
-      setProjet((await axios("http://localhost:8000/api/projets")).data[0]);
+      setProjets((await axios(`${API_URL}/projets`)).data);
     } catch (e) {
       if (e.response.status === 401) {
-        setProjet();
+        setProjets();
       }
     }
   }
@@ -34,8 +32,8 @@ export default function HomePage() {
       <MainContainer />
       <Recommandations />
       <APropos />
-      <PortfolioSection projet={projet} />
-      <Contact />
+      <PortfolioSection projets={projets} />
+      <Contact API_URL={API_URL} />
       <Footer />
     </div>
   );

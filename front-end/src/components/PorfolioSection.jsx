@@ -1,12 +1,10 @@
 import PortfolioComponent from "./PortfolioComponent";
 
-export default function PorfolioSection({ projet }) {
+export default function PorfolioSection({ projets }) {
   return (
     <div>
       <h2 className="titre-section px-24">Portfolio</h2>
-      <PortfolioComponent projet={projet} />
-      <PortfolioComponent projet={projet} />
-      <PortfolioComponent projet={projet} />
+      <PortfolioComponent projets={projets} />
     </div>
   );
 }

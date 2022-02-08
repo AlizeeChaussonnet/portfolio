@@ -4,24 +4,20 @@ export default function APropos() {
   return (
     <div className="px-24 my-20" id="container-a-propos">
       <h2 className="titre-section">A propos</h2>
-      <div className="flex flex-row">
+      <div className="flex flex-row justify-center">
         <img
           src={profilPicture}
           className="w-1/6 rounded-r-lg"
           alt="image de profil"
         />
         <p className="text-justify w-1/2 pl-16">
-          Le Lorem Ipsum est simplement du faux texte employé dans la
-          composition et la mise en page avant impression. Le Lorem Ipsum est le
-          faux texte standard de l'imprimerie depuis les années 1500, quand un
-          imprimeur anonyme assembla ensemble des morceaux de texte pour
-          réaliser un livre spécimen de polices de texte. Il n'a pas fait que
-          survivre cinq siècles, mais s'est aussi adapté à la bureautique
-          informatique, sans que son contenu n'en soit modifié. Il a été
-          popularisé dans les années 1960 grâce à la vente de feuilles Letraset
-          contenant des passages du Lorem Ipsum, et, plus récemment, par son
-          inclusion dans des applications de mise en page de texte, comme Aldus
-          PageMaker.
+          Diplômée d'un Master en Marketing, j'ai passé 8 ans dans la grande
+          distribution auprès des plus grands industriels (Henkel, P&G, Mars).
+          Toujours attirée par l'informatique j'ai décidé de suivre cette voie
+          et de devenir développeuse web. De nature curieuse, j'aime continuer à
+          acquérir de nouvelles compétences. Je sais travailler de manière
+          autonome et gérer mes projets en respectant les délais, mais également
+          m'intégrer dans une équipe.
         </p>
       </div>
     </div>
