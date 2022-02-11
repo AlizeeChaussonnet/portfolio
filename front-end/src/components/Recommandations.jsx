@@ -2,8 +2,10 @@ import BlocRecommandations from "./BlocRecommandations";
 
 export default function Recommandations() {
   return (
-    <div className="pt-10" id="container-recommandation">
-      <h2 className="titre-section px-24">Recommandations</h2>
+    <>
+      <div id="container-recommandation" className="h-[88px] mt-[-88px]"></div>
+
+      <h2 className="titre-section">Recommandations</h2>
       <div className="flex px-24">
         <BlocRecommandations
           titreRecommandation={"Je recommande"}
@@ -24,6 +26,6 @@ export default function Recommandations() {
           }
         />
       </div>
-    </div>
+    </>
   );
 }

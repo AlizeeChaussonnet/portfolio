@@ -2,7 +2,8 @@ import profilPicture from "../assets/img/profil_picture.jpg";
 
 export default function APropos() {
   return (
-    <div className="px-24 my-20" id="container-a-propos">
+    <>
+      <div id="container-a-propos" className="h-[88px] mt-[-88px]"></div>
       <h2 className="titre-section">A propos</h2>
       <div className="flex flex-row justify-center">
         <img
@@ -20,6 +21,6 @@ export default function APropos() {
           m'intégrer dans une équipe.
         </p>
       </div>
-    </div>
+    </>
   );
 }

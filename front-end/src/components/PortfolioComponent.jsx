@@ -1,9 +1,8 @@
 import github from "../assets/img/github.svg";
 
 export default function PortfolioComponent({ projets }) {
-  console.log(projets);
   return (
-    <div className="px-24 my-20 scroll-smooth" id="container-portfolio">
+    <div className="px-24 mt-6 scroll-smooth">
       {projets.map((projet) => {
         return (
           <div className="flex my-8" key={projet.id}>

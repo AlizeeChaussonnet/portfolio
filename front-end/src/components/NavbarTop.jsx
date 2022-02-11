@@ -24,6 +24,7 @@ export default function NavbarTop() {
       .querySelector("#container-recommandation")
       .scrollIntoView({ behavior: "smooth" });
   }
+
   function scrollToHome() {
     document
       .querySelector("#container-home")
