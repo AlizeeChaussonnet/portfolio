@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 
@@ -12,6 +14,7 @@ function App() {
   return (
     <div className="">
       <BrowserRouter>
+        <ToastContainer />
         <Routes>
           <Route path="/" element={<HomePage API_URL={API_URL} />} />
           <Route path="/login" element={<Login />} />

@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { notifSucess } from "../services/notifications";
 import axios from "axios";
 
 export default function Contact({ API_URL }) {
@@ -12,9 +11,9 @@ export default function Contact({ API_URL }) {
   } = useForm();
 
   const onSubmit = async (data) => {
+    notifSucess("Merci pour votre message");
     return await axios.post(`${API_URL}/contact`, data).data;
   };
-  const notify = () => toast("Wow so easy !");
 
   return (
     <div id="container-contact">
@@ -95,18 +94,6 @@ export default function Contact({ API_URL }) {
               >
                 Contactez-Moi
               </button>
-
-              <ToastContainer
-                position="top-right"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-              />
             </div>
           </form>
         </div>
