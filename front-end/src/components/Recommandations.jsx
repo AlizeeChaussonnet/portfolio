@@ -22,8 +22,8 @@ export default function Recommandations() {
       <div className="flex px-24">
         {textRecommandation.map((reco, i) => {
           return (
-            <div className="px-8 py-4">
-              <h3 className="text-gray-600 font-light text-2xl pb-6" key={i}>
+            <div className="px-8 py-4" key={i}>
+              <h3 className="text-gray-600 font-light text-2xl pb-6">
                 {reco.title}
               </h3>
               <p className="text-justify">{reco.text}</p>

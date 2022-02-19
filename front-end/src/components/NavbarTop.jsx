@@ -40,11 +40,11 @@ export default function NavbarTop() {
         <button onClick={scrollToHome} className="a-class">
           <HomeIcon className="w-[20px] text-cyan-400 " />
         </button>
-        <button onClick={scrollToAPropos} className="a-class">
-          A propos
-        </button>
         <button onClick={scrollToRecommandation} className="a-class">
           Recommandations
+        </button>
+        <button onClick={scrollToAPropos} className="a-class">
+          A propos
         </button>
         <button onClick={scrollToPortfolio} className="a-class">
           Portfolio
